@@ -1,0 +1,261 @@
+﻿.sv-product-card {
+  position: relative;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.sv-product-card:hover {
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+}
+
+.sv-product-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Media Box */
+.sv-product-media {
+  position: relative;
+  width: 100%;
+  padding-top: 125%; /* 4:5 modern portrait aspect ratio */
+  background-color: var(--bg-secondary);
+  overflow: hidden;
+}
+
+.sv-product-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sv-product-card:hover .sv-product-img {
+  transform: scale(1.05);
+}
+
+/* Bookmark Button (44x44 hit target) */
+.sv-product-fav-btn {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  cursor: pointer;
+  z-index: 5;
+  transition: all var(--transition-fast);
+}
+
+.sv-product-fav-btn:hover {
+  background: #FFFFFF;
+  color: var(--accent-primary);
+  transform: scale(1.08);
+}
+
+.sv-product-fav-btn.active {
+  background: var(--accent-primary);
+  color: #FFFFFF;
+  border-color: var(--accent-primary);
+}
+
+/* Badges */
+.sv-product-badges {
+  position: absolute;
+  bottom: 0.65rem;
+  left: 0.65rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.sv-badge-condition,
+.sv-badge-size {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-xs);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  background: rgba(15, 23, 42, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #FFFFFF;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.sv-badge-size {
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--accent-secondary);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Hover Quick Swap Button (Desktop) */
+.sv-product-hover-action {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.3);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--transition-fast);
+  z-index: 6;
+}
+
+.sv-product-card:hover .sv-product-hover-action {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sv-quick-swap-btn {
+  box-shadow: var(--shadow-md);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  transform: translateY(8px);
+  transition: transform var(--transition-fast);
+}
+
+.sv-product-card:hover .sv-quick-swap-btn {
+  transform: translateY(0);
+}
+
+/* Info Section */
+.sv-product-info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.sv-product-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.sv-product-brand {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+}
+
+.sv-product-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #F59E0B;
+}
+
+.sv-star-icon {
+  color: #F59E0B;
+}
+
+.sv-product-title {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sv-product-details {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: capitalize;
+}
+
+.sv-product-dot {
+  color: var(--border-medium);
+}
+
+.sv-product-footer {
+  margin-top: auto;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.sv-product-location {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sv-mobile-quick-swap-btn {
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.55rem;
+  background: var(--accent-primary-light);
+  color: var(--accent-primary);
+  border: 1px solid rgba(230, 81, 0, 0.25);
+  border-radius: var(--radius-xs);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  transition: all var(--transition-fast);
+}
+
+.sv-mobile-quick-swap-btn:hover {
+  background: var(--accent-primary);
+  color: #FFFFFF;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .sv-product-hover-action {
+    display: none;
+  }
+  .sv-mobile-quick-swap-btn {
+    display: inline-flex;
+  }
+}

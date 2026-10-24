@@ -1,0 +1,148 @@
+================================================================================
+                    SEGUNDA VUELTA - PLATAFORMA DE ECONOMIA CIRCULAR
+                  FUNDAMENTACION TECNICA, PEDAGOGICA Y AMBIENTAL
+                             CONCURSO DE PROYECTOS 2026
+================================================================================
+
+1. INTRODUCCION Y DIAGNOSTICO DE LA PROBLEMATICA
+--------------------------------------------------------------------------------
+La industria textil y de la moda rapida ("Fast Fashion") se ha consolidado a nivel 
+global como la segunda industria mas contaminante del planeta, siendo responsable 
+del 10% de las emisiones globales de gases de efecto invernadero y de mas del 20% de 
+las aguas residuales del mundo. 
+
+En la Republica Argentina, particularmente en los centros urbanos como el Area 
+Metropolitana de Buenos Aires (AMBA), se estima que se descartan anualmente decenas 
+de miles de toneladas de indumentaria en condiciones perfectamente reutilizables. La 
+cultura del descarte y la aceleracion de los ciclos de microtendencias generan dos 
+graves consecuencias simultaneas:
+  a) Un impacto ambiental devastador: Cada prenda producida desde cero consume 
+     recursos criticos no renovables (aproximadamente 2.700 litros de agua potable 
+     para una simple camiseta de algodon, equivalente a lo que bebe una persona en 3 
+     anos, y emite entre 8 y 15 kg de CO2eq).
+  b) Una exclusion socioeconomica acentuada: El costo de adquirir indumentaria 
+     deportiva y prendas urbanas originales en el circuito comercial tradicional se 
+     ha vuelto prohibitivo para jovenes, estudiantes y trabajadores.
+
+"SEGUNDA VUELTA" nace como una respuesta tecnologica innovadora y disruptiva a esta 
+doble problematica. A traves de una plataforma web integral, segura y dotada de 
+Inteligencia Artificial, transforma los placares inactivos en un ecosistema de 
+intercambio circular, eliminando la barrera del dinero y fomentando la sustentabilidad 
+comunitaria.
+
+
+2. PROPUESTA DE VALOR: ECONOMIA CIRCULAR EN LA PRACTICA
+--------------------------------------------------------------------------------
+Frente al modelo lineal tradicional ("Extraer -> Fabricar -> Consumir -> Tirar"), 
+Segunda Vuelta implementa de forma estricta los principios de la Economia Circular 
+("Reducir -> Reutilizar -> Redirigir -> Recircular"):
+
+* Impacto Hidrico y de Carbono Directo:
+  Por cada intercambio completado exitosamente en la plataforma, se previene la 
+  produccion de una prenda nueva, ahorrando en promedio:
+  - 2.700 a 4.000 litros de agua potable.
+  - 10 a 14 kilogramos de emisiones de dioxido de carbono (CO2).
+  - 0.5 kg de residuos textiles que no ingresan al relleno sanitario del CEAMSE.
+
+* Circuito de Ultima Milla Sustentable:
+  Mediante el calculo matematico de distancia geoespacial (Formula de Haversine), 
+  la plataforma prioriza los intercambios de cercania vecinal (0 a 5 km), 
+  promoviendo que el encuentro para concretar el swap se realice a pie, en bicicleta 
+  o transporte publico, anulando la huella de flete y envios logisticos contaminantes.
+
+
+3. ARQUITECTURA TECNOLOGICA Y STACK COMPLETO
+--------------------------------------------------------------------------------
+Segunda Vuelta fue concebida bajo una arquitectura moderna de microservicios y 
+APIs desacopladas, garantizando modularidad, mantenibilidad y alta disponibilidad:
+
+A. FRONTEND (Single Page Application - SPA):
+   - Libreria base: React 19 con Vite 8 como empaquetador ultrarrapido.
+   - Enrutamiento: React Router v6 para navegacion fluida y rutas protegidas.
+   - Estado Global: Zustand para autenticacion y filtros de busqueda reactivos.
+   - Consumo de APIs: Axios con interceptores automaticos de tokens y refresco.
+   - Diseno y Estilos: Vanilla CSS de alta gama con variables nativas de disenador 
+     ("Asfalto Nocturno"), inspirado en los retailers lideres de streetwear y 
+     deportes (distribucion tipo Templo del Futbol). No utiliza emojis ni plantillas 
+     genericas; emplea tipografias modernas (Inter y Space Grotesk) e iconografia 
+     vectorial optimizada (Lucide React).
+   - Componentes Reutilizables: Modales accesibles, galeria de imagenes con 
+     miniaturas, barras de anuncio dinámicas, sliders de geolocalizacion y 
+     formularios con validacion inmediata.
+
+B. BACKEND (Servidor de Aplicacion y Tiempo Real):
+   - Entorno: Node.js (v24 LTS) con framework Express 5.
+   - Comunicacion en Tiempo Real: Socket.IO bidireccional sobre WebSockets para la 
+     mensajeria instantanea entre usuarios durante la negociacion del swap, con 
+     soporte de lectura de mensajes y notificaciones de estado.
+   - Capa de Persistencia y ORM: Sequelize v6 gestionando modelos fuertemente 
+     tipados, relaciones uno-a-muchos y muchos-a-muchos, restricciones de integridad 
+     referencial y transacciones ACID.
+   - Base de Datos: MySQL sobre WAMP Server (puerto 3306), con tablas indexadas 
+     para usuarios, prendas, intercambios, salas de chat, mensajes, resenas, 
+     denuncias y registros de auditoria (BanLogs).
+   - Procesamiento Multimedia: Sharp para compresion y conversion automatica de 
+     fotos a formato WebP optimizado en memoria antes de guardarlas, reduciendo 
+     el uso de disco y ancho de banda en un 75% sin degradacion visual.
+
+C. SERVICIO DE INTELIGENCIA ARTIFICIAL (Motor de Recomendacion):
+   - Entorno: Python 3.14 con servicio ASGI de alto desempeno sobre Uvicorn.
+   - Algoritmo: Filtrado Basado en Contenido (Content-Based Recommendation) con 
+     Vectorizacion TF-IDF (Term Frequency - Inverse Document Frequency) y calculo 
+     de Similitud de Coseno vectorial sobre caracteristicas de la prenda (titulo, 
+     marca, categoria, estilo, corte y descripcion semantica).
+   - Ponderacion Hibrida: Combina la similitud estetica (40%) con la compatibilidad 
+     de estilo/categoria (40%) y la proximidad geoespacial Haversine (20%), 
+     devolviendo al usuario una explicacion transparente del porcentaje de 
+     coincidencia y el motivo ("Mismo estilo Streetwear y a 2.4 km").
+
+
+4. PROTOCOLO DE SEGURIDAD, CONFIANZA Y PREVENCION DE FRAUDES
+--------------------------------------------------------------------------------
+Uno de los mayores desafios de las plataformas de intercambio directo es la 
+confianza entre las partes. Segunda Vuelta resuelve esto mediante un diseno 
+institucional y criptografico de cuatro capas:
+
+1. Formalizacion con Codigo Unico (OTP de 8 caracteres):
+   Cuando ambos usuarios aceptan un intercambio, el sistema genera un codigo 
+   alfanumerico aleatorio e irrepetible (ej: "SV94B82X"). Al momento del encuentro 
+   fisico para revisar las prendas, se valida dicho codigo en la plataforma, 
+   asegurando que ninguna de las partes confirme la transaccion sin tener la 
+   prenda en sus manos.
+
+2. Plazo Estricto de 72 Horas:
+   Todo intercambio formalizado tiene una fecha de vencimiento irrevocable de 72 
+   horas cronometradas. Si no se concreta en ese lapso, el sistema libera 
+   automaticamente las prendas para que vuelvan al catalogo publico, evitando 
+   que usuarios inactivos bloqueen el inventario.
+
+3. Sistema de Reputacion y Resenas Comunitarias:
+   Unicamente los usuarios que hayan finalizado un intercambio formalizado tienen 
+   permiso para calificar y dejar una resena escrita. La reputacion por estrellas 
+   (1.0 a 5.0) se recalcula matematicamente en tiempo real mediante un hook del 
+   modelo Sequelize, blindando el perfil contra resenas falsas o spam.
+
+4. Panel de Administracion y Auditoria Proactiva:
+   Los administradores disponen de un tablero de control en tiempo real con metricas 
+   clave (KPIs), cola de resolucion de denuncias de la comunidad y modulo de 
+   suspension con registro obligatorio de motivo (BanLog), garantizando una 
+   experiencia segura y respetuosa.
+
+
+5. JUSTIFICACION PEDAGOGICA Y VIABILIDAD
+--------------------------------------------------------------------------------
+Este proyecto integra de manera armonica y transversal multiples competencias 
+tecnicas de formacion profesional en desarrollo de software:
+- Diseno y normalizacion de bases de datos relacionales robustas (MySQL / ORM).
+- Implementacion de estandares de seguridad en la web (JWT dual con cookies 
+  httpOnly, Helmet, CORS, proteccion contra ataques de denegacion y sanitizacion).
+- Desarrollo frontend orientado a componentes desacoplados y experiencia de 
+  usuario moderna ("Mobile First" y Estetica Dark Mode).
+- Integracion de modelos matematicos e Inteligencia Artificial aplicada para 
+  resolver problemas concretos de clasificacion y emparejamiento.
+- Compromiso social y ecologico demostrable mediante metricas tangibles.
+
+Segunda Vuelta demuestra que el codigo y la tecnologia pueden ser palancas 
+fundamentales para generar comunidad, democratizar el acceso a bienes de calidad 
+y cuidar activamente el medio ambiente.
+================================================================================

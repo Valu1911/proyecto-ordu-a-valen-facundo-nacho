@@ -1,0 +1,37 @@
+﻿.sv-announcement-bar {
+  background-color: var(--accent-secondary);
+  color: #FFFFFF;
+  font-size: 0.6875rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+  user-select: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sv-announcement-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 2rem;
+  animation: sv-ticker 32s linear infinite;
+}
+
+.sv-announcement-track:hover {
+  animation-play-state: paused;
+}
+
+.sv-announcement-dot {
+  color: var(--accent-primary);
+  font-weight: 900;
+}
+
+@keyframes sv-ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

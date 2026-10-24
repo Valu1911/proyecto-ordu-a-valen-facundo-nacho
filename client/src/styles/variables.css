@@ -1,0 +1,69 @@
+﻿:root {
+  /* Color Palette - Asfalto Urbano y Moda Circular */
+  --bg-primary: #F8F9FA;
+  --bg-secondary: #EEF0F2;
+  --bg-elevated: #FFFFFF;
+  --bg-glass: rgba(255, 255, 255, 0.88);
+  --bg-glass-dark: rgba(18, 18, 28, 0.85);
+
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+  --text-on-dark: #FFFFFF;
+
+  /* Primary Accent: Naranja Fuego Circular */
+  --accent-primary: #E65100;
+  --accent-primary-hover: #C84500;
+  --accent-primary-active: #A73A00;
+  --accent-primary-light: #FFF4ED;
+  --accent-primary-glow: rgba(230, 81, 0, 0.22);
+
+  /* Secondary Accent: Asfalto Nocturno / Navy Profundo */
+  --accent-secondary: #0F172A;
+  --accent-secondary-hover: #1E293B;
+  --accent-secondary-light: #F1F5F9;
+
+  /* Semantic Feedback Colors */
+  --accent-success: #16A34A;
+  --accent-success-hover: #15803D;
+  --accent-success-light: #DCFCE7;
+  --accent-warning: #D97706;
+  --accent-warning-hover: #B45309;
+  --accent-warning-light: #FEF3C7;
+  --accent-danger: #DC2626;
+  --accent-danger-hover: #B91C1C;
+  --accent-danger-light: #FEE2E2;
+
+  /* Borders & Surfaces */
+  --border-light: #E2E8F0;
+  --border-medium: #CBD5E1;
+  --border-focus: #E65100;
+  --surface-hover: #F1F5F9;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: 'Space Grotesk', 'Inter', -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+  /* Shadows - Ambient & Refined */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 2px 6px -1px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.03);
+  --shadow-md: 0 6px 16px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 14px 28px -4px rgba(15, 23, 42, 0.1), 0 6px 12px -2px rgba(15, 23, 42, 0.05);
+  --shadow-xl: 0 24px 44px -8px rgba(15, 23, 42, 0.14), 0 12px 20px -4px rgba(15, 23, 42, 0.06);
+  --shadow-glow: 0 0 25px rgba(230, 81, 0, 0.25);
+  --shadow-card-hover: 0 16px 32px -4px rgba(15, 23, 42, 0.12), 0 6px 12px -2px rgba(230, 81, 0, 0.08);
+
+  /* Border Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}

@@ -1,0 +1,56 @@
+.sv-star-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.sv-stars-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.125rem;
+}
+
+.sv-star-btn {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: default;
+}
+
+.sv-star-btn.is-interactive {
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.sv-star-btn.is-interactive:hover {
+  transform: scale(1.15);
+}
+
+.sv-star-filled {
+  color: #F59E0B;
+  fill: #F59E0B;
+}
+
+.sv-star-half {
+  color: #F59E0B;
+  fill: #FCD34D;
+}
+
+.sv-star-empty {
+  color: var(--border-medium);
+  fill: transparent;
+}
+
+.sv-star-value {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.sv-star-count {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
