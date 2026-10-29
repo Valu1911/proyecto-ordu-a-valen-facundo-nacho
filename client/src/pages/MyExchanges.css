@@ -1,4 +1,4 @@
-﻿.sv-exchanges-page {
+.sv-exchanges-page {
   padding-top: 2.5rem;
   padding-bottom: 5rem;
   display: flex;
@@ -468,30 +468,142 @@
   gap: 0.5rem;
 }
 
+.sv-exchange-partner,
+.sv-exchange-item-col {
+  min-width: 0;
+}
+
+.sv-exchange-item-preview > div {
+  min-width: 0;
+}
+
+.sv-exchange-item-preview h4 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sv-exchange-card-header {
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.sv-code-row {
+  flex-wrap: wrap;
+}
+
 @media (max-width: 768px) {
+  .sv-exchanges-page {
+    padding-top: 1.25rem;
+    padding-bottom: 3.5rem;
+    gap: 1.25rem;
+  }
+
+  .sv-exchanges-title {
+    font-size: 1.5rem;
+  }
+
   .sv-exchanges-header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 1rem;
   }
+
   .sv-exchanges-tabs {
     width: 100%;
-    justify-content: space-between;
+    overflow-x: auto;
+    scrollbar-width: none;
   }
+
+  .sv-exchanges-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sv-tab-btn {
+    flex: 1 0 auto;
+    justify-content: center;
+    padding: 0.65rem 0.85rem;
+    white-space: nowrap;
+  }
+
+  .sv-exchanges-list {
+    gap: 1rem;
+  }
+
+  .sv-exchange-card-header {
+    padding: 0.85rem 1rem;
+  }
+
   .sv-exchange-items-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 1rem;
   }
+
   .sv-exchange-vs-divider {
     margin: 0 auto;
+    transform: rotate(90deg);
   }
+
   .sv-formalized-banner {
     flex-direction: column;
     align-items: flex-start;
+    gap: 0.85rem;
+    padding: 1rem;
   }
+
+  .sv-code-text {
+    font-size: 1.25rem;
+    letter-spacing: 0.1em;
+  }
+
   .sv-exchange-card-footer {
     flex-direction: column;
     align-items: stretch;
+    padding: 0.85rem 1rem;
   }
+
+  .sv-action-buttons-group {
+    flex-wrap: wrap;
+  }
+
+  .sv-action-buttons-group > * {
+    flex: 1 1 auto;
+  }
+
   .sv-exchange-stepper {
     padding: 0.75rem 1rem;
+  }
+
+  .sv-confirm-actions,
+  .sv-review-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .sv-confirm-actions > *,
+  .sv-review-actions > * {
+    width: 100%;
+  }
+
+  .sv-exchanges-empty {
+    padding: 3rem 1.25rem;
+  }
+}
+
+/* Stepper: with four labels it cannot fit a phone, so only the current step is labelled */
+@media (max-width: 560px) {
+  .sv-stepper-step:not(.step-done) .sv-step-text,
+  .sv-stepper-step.step-done:has(~ .sv-stepper-step.step-done) .sv-step-text {
+    display: none;
+  }
+
+  .sv-stepper-line {
+    margin: 0 0.5rem;
+  }
+
+  .sv-otp-input {
+    font-size: 1.2rem;
+    letter-spacing: 0.15em;
   }
 }

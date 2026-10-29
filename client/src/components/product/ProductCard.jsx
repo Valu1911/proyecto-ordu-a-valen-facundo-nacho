@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { MapPin, Repeat, Star, Bookmark, Shirt } from 'lucide-react';
 import { Button } from '../ui/Button.jsx';
@@ -130,7 +130,7 @@ export function ProductCard({ product, onQuickSwap = null }) {
 
           <div className="sv-product-details">
             {product.category && <span className="sv-product-tag">{product.category}</span>}
-            {product.category && product.style && <span className="sv-product-dot">â€¢</span>}
+            {product.category && product.style && <span className="sv-product-dot">•</span>}
             {product.style && <span className="sv-product-tag">{product.style}</span>}
           </div>
 
@@ -139,7 +139,7 @@ export function ProductCard({ product, onQuickSwap = null }) {
               <MapPin size={13} />
               <span>
                 {product.location_city || product.user?.location_city || 'Buenos Aires'}
-                {product.distance_km ? ` â€¢ a ${Number(product.distance_km).toFixed(1)} km` : ''}
+                {product.distance_km ? ` • a ${Number(product.distance_km).toFixed(1)} km` : ''}
               </span>
             </div>
 

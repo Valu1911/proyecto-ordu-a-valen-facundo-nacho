@@ -1,5 +1,6 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { createPortal } from 'react-dom';
 import {
   Search,
   Plus,
@@ -308,6 +309,7 @@ export function Header() {
               <Button
                 variant="primary"
                 size="sm"
+                className="sv-register-btn"
                 onClick={() => openAuthModal('register')}
               >
                 REGISTRARSE
@@ -413,7 +415,7 @@ export function Header() {
       </nav>
 
       {/* Mobile Drawer Backdrop & Drawer */}
-      {isMobileMenuOpen && (
+      {isMobileMenuOpen && createPortal(
         <div className="sv-mobile-menu-overlay" onClick={() => setIsMobileMenuOpen(false)}>
           <div className="sv-mobile-menu" onClick={(e) => e.stopPropagation()}>
             <div className="sv-mobile-menu-header">
@@ -454,6 +456,47 @@ export function Header() {
               >
                 Prendas Guardadas ({favorites.length})
               </Link>
+
+              {isAuthenticated && (
+                <>
+                  <div className="sv-mobile-nav-divider" />
+                  <Link
+                    to="/mis-intercambios"
+                    className="sv-mobile-link"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Mis Intercambios
+                  </Link>
+                  <Link
+                    to="/chat"
+                    className="sv-mobile-link sv-mobile-link-row"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <span>Mensajes</span>
+                    {unreadCount > 0 && (
+                      <span className="sv-mobile-link-badge">
+                        {unreadCount > 99 ? '99+' : unreadCount}
+                      </span>
+                    )}
+                  </Link>
+                  <Link
+                    to={`/perfil/${user?.id}`}
+                    className="sv-mobile-link"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Mi Perfil
+                  </Link>
+                  {user?.role === 'admin' && (
+                    <Link
+                      to="/admin"
+                      className="sv-mobile-link"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      Panel Administrador
+                    </Link>
+                  )}
+                </>
+              )}
             </div>
 
             <div className="sv-mobile-actions">
@@ -493,9 +536,23 @@ export function Header() {
                   </Button>
                 </div>
               )}
+              {isAuthenticated && (
+                <button
+                  type="button"
+                  className="sv-mobile-link sv-mobile-link-danger"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    logout();
+                    navigate('/');
+                  }}
+                >
+                  Cerrar Sesión
+                </button>
+              )}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </header>
   );

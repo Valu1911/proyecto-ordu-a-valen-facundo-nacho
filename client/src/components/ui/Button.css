@@ -1,4 +1,4 @@
-﻿.sv-btn {
+.sv-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -137,4 +137,13 @@
 
 @keyframes sv-spin {
   to { transform: rotate(360deg); }
+}
+
+@media (max-width: 480px) {
+  .sv-btn {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.2;
+  }
 }

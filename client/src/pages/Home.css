@@ -1,4 +1,4 @@
-﻿.sv-home-page {
+.sv-home-page {
   display: flex;
   flex-direction: column;
   gap: 4.5rem;
@@ -549,43 +549,174 @@
 }
 
 /* Responsiveness */
+.sv-hero-content,
+.sv-hero-banner-card {
+  min-width: 0;
+}
+
+.sv-hero-trust-metrics {
+  flex-wrap: wrap;
+}
+
+.sv-ai-home-section {
+  width: min(1320px, calc(100% - 2.5rem));
+}
+
 @media (max-width: 1024px) {
   .sv-cat-grid,
   .sv-ai-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 860px) {
+  .sv-home-page {
+    gap: 3rem;
+    padding-bottom: 3.5rem;
+  }
+  .sv-hero-section {
+    padding: 2.5rem 0 3rem;
+  }
   .sv-hero-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 2.5rem;
   }
   .sv-hero-title {
     font-size: 2.5rem;
   }
+  .sv-hero-banner-card {
+    transform: none;
+  }
   .sv-steps-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
   }
   .sv-ai-home-section {
     padding: 2rem 1.5rem;
   }
+  .sv-how-it-works-section {
+    padding: 3rem 0;
+  }
+  .sv-how-header {
+    margin-bottom: 2.25rem;
+  }
+  .sv-how-header h2 {
+    font-size: 1.85rem;
+  }
 }
 
 @media (max-width: 600px) {
+  .sv-home-page {
+    gap: 2.5rem;
+  }
+  .sv-hero-section {
+    padding: 1.75rem 0 2.25rem;
+  }
+  .sv-hero-container {
+    gap: 2rem;
+  }
+  .sv-hero-content {
+    gap: 1.15rem;
+  }
   .sv-hero-title {
     font-size: 2.1rem;
   }
-  .sv-cat-grid,
-  .sv-ai-cards-grid {
-    grid-template-columns: 1fr;
+  .sv-hero-desc {
+    font-size: 1rem;
   }
   .sv-hero-actions {
     flex-direction: column;
+    align-items: stretch;
     width: 100%;
+    gap: 0.75rem;
   }
   .sv-hero-actions button {
     width: 100%;
+  }
+  .sv-hero-trust-metrics {
+    gap: 0.85rem 1.25rem;
+  }
+  .sv-trust-divider {
+    display: none;
+  }
+  .sv-hero-card-img-wrapper {
+    padding-top: 95%;
+  }
+  .sv-hero-card-overlay {
+    padding: 1.25rem 1.15rem;
+  }
+  .sv-hero-card-overlay h3 {
+    font-size: 1.05rem;
+  }
+
+  .sv-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+  }
+  .sv-section-title {
+    font-size: 1.4rem;
+  }
+  .sv-section-subtitle {
+    font-size: 0.875rem;
+  }
+
+  .sv-cat-grid,
+  .sv-ai-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+  .sv-cat-card {
+    height: 210px;
+  }
+  .sv-cat-card-content {
+    padding: 0.9rem;
+  }
+  .sv-cat-card-content h3 {
+    font-size: 0.9rem;
+  }
+  .sv-cat-card-content p {
+    font-size: 0.72rem;
+  }
+
+  /* The AI card is a .container too: keep it as an inset card, not full-bleed */
+  .sv-ai-home-section {
+    width: calc(100% - 2rem);
+    padding: 1.5rem 1rem;
+  }
+  .sv-ai-home-banner {
+    margin-bottom: 1.5rem;
+  }
+  .sv-ai-home-header h2 {
+    font-size: 1.35rem;
+  }
+  .sv-ai-card-info {
+    padding: 0.75rem;
+  }
+  .sv-ai-card-footer {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .sv-how-header h2 {
+    font-size: 1.5rem;
+  }
+  .sv-step-card {
+    padding: 1.5rem 1.25rem;
+  }
+  .sv-step-number {
+    top: 1rem;
+    right: 1.25rem;
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .sv-hero-title {
+    font-size: 1.85rem;
+  }
+  .sv-ai-home-section {
+    width: calc(100% - 1.5rem);
   }
 }

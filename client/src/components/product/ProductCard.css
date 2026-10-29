@@ -1,4 +1,4 @@
-﻿.sv-product-card {
+.sv-product-card {
   position: relative;
   background: var(--bg-elevated);
   border: 1px solid var(--border-light);
@@ -250,6 +250,50 @@
   color: #FFFFFF;
 }
 
+.sv-product-brand {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sv-product-location svg {
+  flex-shrink: 0;
+}
+
+.sv-product-location span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sv-product-location {
+  min-width: 0;
+  flex: 1;
+}
+
+/* Touch devices have no real hover: don't leave cards "stuck" lifted after a tap */
+@media (hover: none) {
+  .sv-product-card:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: var(--border-light);
+  }
+
+  .sv-product-card:hover .sv-product-img {
+    transform: none;
+  }
+
+  .sv-product-hover-action {
+    display: none;
+  }
+
+  .sv-mobile-quick-swap-btn {
+    display: inline-flex;
+  }
+}
+
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .sv-product-hover-action {
@@ -257,5 +301,64 @@
   }
   .sv-mobile-quick-swap-btn {
     display: inline-flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .sv-product-info {
+    padding: 0.7rem 0.75rem 0.75rem;
+    gap: 0.25rem;
+  }
+
+  .sv-product-title {
+    font-size: 0.875rem;
+  }
+
+  .sv-product-details {
+    font-size: 0.6875rem;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .sv-product-footer {
+    padding-top: 0.5rem;
+    gap: 0.4rem;
+  }
+
+  .sv-product-location {
+    font-size: 0.6875rem;
+  }
+
+  .sv-product-fav-btn {
+    top: 0.45rem;
+    right: 0.45rem;
+    width: 36px;
+    height: 36px;
+  }
+
+  .sv-product-badges {
+    bottom: 0.45rem;
+    left: 0.45rem;
+    gap: 0.25rem;
+    max-width: calc(100% - 0.9rem);
+  }
+
+  .sv-badge-condition,
+  .sv-badge-size {
+    font-size: 0.5625rem;
+    padding: 0.2rem 0.35rem;
+  }
+
+  /* Icon-only swap button: 36px square keeps a comfortable touch target */
+  .sv-mobile-quick-swap-btn {
+    flex-shrink: 0;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+  }
+
+  .sv-mobile-quick-swap-btn span {
+    display: none;
   }
 }

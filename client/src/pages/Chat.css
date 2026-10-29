@@ -1,13 +1,15 @@
-﻿.sv-chat-page {
+.sv-chat-page {
   padding-top: 1.5rem;
   padding-bottom: 2rem;
   height: calc(100vh - 120px);
+  height: calc(100dvh - 120px);
   min-height: 580px;
 }
 
 .sv-chat-layout {
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 320px minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
   height: 100%;
   background: var(--bg-elevated);
   border: 1px solid var(--border-light);
@@ -399,10 +401,67 @@
   line-height: 1.5;
 }
 
+/* Shared truncation helpers */
+.sv-chat-window {
+  min-width: 0;
+}
+
+.sv-chat-user-header {
+  min-width: 0;
+}
+
+.sv-chat-user-header > div {
+  min-width: 0;
+}
+
+.sv-chat-user-header h4,
+.sv-room-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sv-room-name {
+  min-width: 0;
+}
+
+.sv-room-top {
+  gap: 0.5rem;
+}
+
+.sv-room-time {
+  flex-shrink: 0;
+}
+
+.sv-message-img {
+  max-width: min(220px, 100%);
+}
+
+.sv-chat-text-input {
+  min-width: 0;
+}
+
 /* Mobile Breakpoint */
 @media (max-width: 768px) {
+  /* Edge-to-edge chat; header stack on mobile is ~190px tall */
+  .sv-chat-page {
+    padding: 0;
+    height: calc(100vh - 190px);
+    height: calc(100dvh - 190px);
+    min-height: 420px;
+  }
+
   .sv-chat-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+  }
+
+  .sv-chat-sidebar {
+    border-right: none;
+    min-height: 0;
   }
 
   .sv-chat-sidebar.mobile-hidden {
@@ -415,9 +474,80 @@
 
   .sv-chat-back-mobile {
     display: inline-flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-left: -0.5rem;
+    flex-shrink: 0;
+  }
+
+  .sv-chat-sidebar-header {
+    padding: 1rem 1.25rem;
+  }
+
+  .sv-room-card {
+    padding: 0.85rem 1.25rem;
+  }
+
+  .sv-chat-header {
+    padding: 0.65rem 1rem;
+    gap: 0.5rem;
+  }
+
+  .sv-chat-user-header {
+    flex: 1;
+  }
+
+  .sv-chat-header-actions {
+    flex-shrink: 0;
   }
 
   .sv-chat-swaps-link span {
+    display: none;
+  }
+
+  .sv-chat-delete-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .sv-chat-messages-container {
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  .sv-chat-security-notice {
+    font-size: 0.6875rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .sv-message-bubble {
+    max-width: 85%;
+    padding: 0.65rem 0.85rem;
+  }
+
+  .sv-chat-input-bar {
+    padding: 0.65rem 0.85rem;
+    padding-bottom: calc(0.65rem + env(safe-area-inset-bottom, 0px));
+    gap: 0.5rem;
+  }
+
+  .sv-chat-attach-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .sv-chat-send-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .sv-chat-placeholder {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sv-chat-user-status {
     display: none;
   }
 }

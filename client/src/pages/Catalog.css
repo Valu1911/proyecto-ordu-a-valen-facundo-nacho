@@ -1,4 +1,4 @@
-﻿.sv-catalog-page {
+.sv-catalog-page {
   padding-top: 2rem;
   padding-bottom: 5rem;
   display: flex;
@@ -174,6 +174,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  min-width: 0;
 }
 
 /* Pagination */
@@ -200,7 +201,7 @@
 
 @media (max-width: 900px) {
   .sv-catalog-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .sv-catalog-sidebar-col {
@@ -223,8 +224,8 @@
   }
 
   .sv-mobile-filter-sheet {
-    width: 85%;
-    max-width: 360px;
+    width: 88%;
+    max-width: 380px;
     height: 100%;
     background: var(--bg-elevated);
     box-shadow: var(--shadow-xl);
@@ -252,8 +253,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: var(--radius-full);
     background: var(--bg-secondary);
     color: var(--text-secondary);
@@ -262,29 +263,86 @@
   .sv-mobile-filter-body {
     flex: 1;
     overflow-y: auto;
+    overscroll-behavior: contain;
     padding: 1.25rem;
   }
 
   .sv-mobile-filter-footer {
     padding: 1rem 1.25rem;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
     border-top: 1px solid var(--border-light);
     background: var(--bg-elevated);
+  }
+
+  /* Bigger touch targets inside the filter sheet */
+  .sv-mobile-filter-body .sv-filter-item-btn {
+    padding: 0.65rem 0.35rem;
+  }
+
+  .sv-mobile-filter-body .sv-size-btn {
+    height: 42px;
+  }
+
+  .sv-mobile-filter-body .sv-filter-section-title {
+    padding: 0.5rem 0;
   }
 }
 
 @media (max-width: 640px) {
+  .sv-catalog-page {
+    padding-top: 1.25rem;
+    padding-bottom: 3.5rem;
+    gap: 1.15rem;
+  }
+
   .sv-catalog-header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 0.85rem;
   }
 
   .sv-catalog-actions {
     width: 100%;
-    justify-content: space-between;
+    gap: 0.6rem;
+  }
+
+  .sv-mobile-filter-btn {
+    flex-shrink: 0;
+    height: 42px;
+  }
+
+  .sv-sort-wrapper {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sv-sort-select {
+    width: 100%;
+    height: 42px;
+    text-overflow: ellipsis;
   }
 
   .sv-catalog-title {
     font-size: 1.45rem;
+  }
+
+  .sv-active-chips-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.65rem 0.85rem;
+  }
+
+  .sv-filter-chip button {
+    padding: 4px;
+  }
+
+  .sv-pagination {
+    gap: 0.75rem;
+  }
+
+  .sv-pagination-info {
+    font-size: 0.8125rem;
+    text-align: center;
   }
 }
