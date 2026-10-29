@@ -68,7 +68,7 @@ router.get('/', [
     }
 
     if (sort === 'rating') {
-      order = [[literal('`owner`.`rating_avg`'), 'DESC']];
+      order = [[{ model: User, as: 'owner' }, 'rating_avg', 'DESC']];
     }
 
     const offset = (parseInt(page) - 1) * parseInt(limit);
