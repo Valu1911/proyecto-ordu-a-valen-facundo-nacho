@@ -34,10 +34,17 @@ dotenv.config({ path: join(__dirname, '..', '..', '.env') });
 const app = express();
 const httpServer = createServer(app);
 
+const isOriginAllowed = (origin) => {
+  if (!origin) return true;
+  if (process.env.CLIENT_URL && origin === process.env.CLIENT_URL) return true;
+  if (origin.includes('localhost') || origin.endsWith('.vercel.app')) return true;
+  return true;
+};
+
 // Socket.IO setup
 const io = new SocketServer(httpServer, {
   cors: {
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin: (origin, callback) => callback(null, true),
     methods: ['GET', 'POST'],
     credentials: true,
   },
@@ -53,7 +60,7 @@ app.use(helmet({
 }));
 
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:5173',
+  origin: (origin, callback) => callback(null, true),
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization'],
