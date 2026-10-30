@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { io } from 'socket.io-client';
 import {
@@ -40,10 +40,13 @@ export function Chat() {
 
   // Initialize Socket.IO connection
   useEffect(() => {
-    if (!isAuthenticated || !token) return;
+    const socketServer = import.meta.env.VITE_API_URL
+      ? import.meta.env.VITE_API_URL.replace(/\/$/, '')
+      : '/';
 
-    const socket = io('/', {
+    const socket = io(socketServer, {
       auth: { token },
+      transports: ['websocket', 'polling'],
     });
     socketRef.current = socket;
 
