@@ -23,7 +23,7 @@ const Review = sequelize.define('Review', {
     references: { model: 'exchanges', key: 'id' },
   },
   rating: {
-    type: DataTypes.TINYINT,
+    type: DataTypes.INTEGER,
     allowNull: false,
     validate: { min: 1, max: 5 },
   },

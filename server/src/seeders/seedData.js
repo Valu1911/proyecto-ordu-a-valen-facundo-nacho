@@ -126,11 +126,20 @@ export async function seedDatabase(force = false) {
 
   // Clear products if force
   if (force) {
-    await sequelize.query('SET FOREIGN_KEY_CHECKS = 0;');
+    const isPg = sequelize.getDialect() === 'postgres';
+    if (isPg) {
+      await sequelize.query("SET session_replication_role = 'replica';");
+    } else {
+      await sequelize.query('SET FOREIGN_KEY_CHECKS = 0;');
+    }
     await Review.destroy({ where: {} });
     await Exchange.destroy({ where: {} });
     await Product.destroy({ where: {} });
-    await sequelize.query('SET FOREIGN_KEY_CHECKS = 1;');
+    if (isPg) {
+      await sequelize.query("SET session_replication_role = 'origin';");
+    } else {
+      await sequelize.query('SET FOREIGN_KEY_CHECKS = 1;');
+    }
     console.log('Cleared existing products for fresh accurate seed.');
   }
 
